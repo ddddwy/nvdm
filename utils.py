@@ -31,7 +31,7 @@ def create_batches(data_size, batch_size, shuffle=True):
   ids = range(data_size)
   if shuffle:
     random.shuffle(ids)
-  for i in range(data_size / batch_size):
+  for i in range(int(data_size / batch_size)):
     start = i * batch_size
     end = (i + 1) * batch_size
     batches.append(ids[start:end])
