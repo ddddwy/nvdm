@@ -93,7 +93,7 @@ def train(sess, model,
           train_url, 
           test_url, 
           batch_size, 
-          training_epochs=1000, 
+          training_epochs=200, 
           alternate_epochs=10):
   """train nvdm model."""
   train_set, train_count = utils.data_set(train_url)
