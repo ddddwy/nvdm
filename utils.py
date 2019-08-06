@@ -28,7 +28,7 @@ def data_set(data_url):
 def create_batches(data_size, batch_size, shuffle=True):
   """create index by batches."""
   batches = []
-  ids = range(data_size)
+  ids = list(range(data_size))
   if shuffle:
     random.shuffle(ids)
   for i in range(int(data_size / batch_size)):
