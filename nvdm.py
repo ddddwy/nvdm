@@ -67,7 +67,7 @@ class NVDM(object):
             eps = tf.random_normal((self.n_sample*batch_size, self.n_topic), 0, 1)
             eps_list = tf.split(0, self.n_sample, eps)
             recons_loss_list = []
-            for i in xrange(self.n_sample):
+            for i in range(self.n_sample):
               if i > 0: tf.get_variable_scope().reuse_variables()
               curr_eps = eps_list[i]
               doc_vec = tf.mul(tf.exp(self.logsigm), curr_eps) + self.mean
@@ -109,14 +109,14 @@ def train(sess, model,
     train_batches = utils.create_batches(len(train_set), batch_size, shuffle=True)
     #-------------------------------
     # train
-    for switch in xrange(0, 2):
+    for switch in range(0, 2):
       if switch == 0:
         optim = model.optim_dec
         print_mode = 'updating decoder'
       else:
         optim = model.optim_enc
         print_mode = 'updating encoder'
-      for i in xrange(alternate_epochs):
+      for i in range(alternate_epochs):
         loss_sum = 0.0
         ppx_sum = 0.0
         kld_sum = 0.0
