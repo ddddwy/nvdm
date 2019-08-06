@@ -144,6 +144,7 @@ def train(sess, model,
                print_mode, '{:d}'.format(i),
                '| Corpus ppx: {:.5f}'.format(print_ppx),  # perplexity for all docs
                '| Per doc ppx: {:.5f}'.format(print_ppx_perdoc),  # perplexity for per doc
+               '| NLL: {:.5}'.format(loss_sum / word_count),
                '| KLD: {:.5}'.format(print_kld))
     #-------------------------------
     # dev
@@ -170,6 +171,7 @@ def train(sess, model,
     print('| Epoch dev: {:d} |'.format(epoch+1), 
            '| Perplexity: {:.9f}'.format(print_ppx),
            '| Per doc ppx: {:.5f}'.format(print_ppx_perdoc),
+           '| NLL: {:.5}'.format(loss_sum / word_count),
            '| KLD: {:.5}'.format(print_kld))        
     #-------------------------------
     # test
@@ -197,6 +199,7 @@ def train(sess, model,
       print('| Epoch test: {:d} |'.format(epoch+1), 
              '| Perplexity: {:.9f}'.format(print_ppx),
              '| Per doc ppx: {:.5f}'.format(print_ppx_perdoc),
+             '| NLL: {:.5}'.format(loss_sum / word_count),
              '| KLD: {:.5}'.format(print_kld))   
 
 def main(argv=None):
